@@ -8,7 +8,7 @@
 /discord-backend/.env
 /.pnp
 .pnp.js
-*.gitignore
+/*.gitignore
 
 # testing
 /coverage
