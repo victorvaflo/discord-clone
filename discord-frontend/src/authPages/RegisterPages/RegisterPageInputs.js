@@ -12,6 +12,22 @@ function RegisterPageInputs(props) {
         type="text"
         placeholder="enter email adress"
       />
+
+      <InputsWithLabel
+        value={userName}
+        setValue={setUserName}
+        label="userName"
+        type="text"
+        placeholder="enter userName"
+      />
+
+      <InputsWithLabel
+        value={password}
+        setValue={setPassword}
+        label="password"
+        type="password"
+        placeholder="enter password"
+      />
     </>
   );
 }
