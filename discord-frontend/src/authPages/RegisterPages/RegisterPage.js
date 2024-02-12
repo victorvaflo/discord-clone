@@ -5,19 +5,26 @@ import { Typography } from "@mui/material";
 import RegisterPageInputs from "./RegisterPageInputs";
 import RegistePageFooter from "./RegistePageFooter";
 import { validateRegisterForm } from "../../shared/components/utils/validators";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/authAction";
+import { useNavigate } from "react-router-dom"
 
-const RegisterPage = () => {
-  const [mail, setMail] = useState("");
+const RegisterPage = ({ register }) => {
+  const navigate = useNavigate();
+  const [email, setMail] = useState("");
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [passWord, setPassword] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-    setIsFormValid(validateRegisterForm(mail, userName, password));
-  }, [mail, userName, password]);
+    setIsFormValid(validateRegisterForm(email, userName, passWord));
+  }, [email, userName, passWord]);
 
   const handleRegister = () => {
-    console.log("register!!!");
+    const userDeatails = {
+      email, passWord, userName
+    };
+    register(userDeatails, navigate);
   };
 
   return (
@@ -26,11 +33,11 @@ const RegisterPage = () => {
         Create an account
       </Typography>
       <RegisterPageInputs
-        mail={mail}
+        mail={email}
         setMail={setMail}
         userName={userName}
         setUserName={setUserName}
-        password={password}
+        password={passWord}
         setPassword={setPassword}
       />
       <RegistePageFooter
@@ -41,4 +48,10 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  }
+}
+
+export default connect(null, mapActionsToProps)(RegisterPage);
