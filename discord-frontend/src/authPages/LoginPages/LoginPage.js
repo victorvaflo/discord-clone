@@ -3,14 +3,12 @@ import AuthBox from "../../shared/components/AuthBox";
 import LoginPageHeader from "./LoginPageHeader";
 import LoginPageInputs from "./LoginPageInputs";
 import LoginPageFooter from "./LoginPageFooter";
-import { validateLoginForm } from "../../shared/components/utils/validators";
-import {connect} from "react-redux";
-import {getActions} from "../../store/actions/authAction";
-import {useNavigate} from "react-router-dom"
+import { validateLoginForm } from "../../shared/utils/validators";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/authAction";
+import { useNavigate } from "react-router-dom";
 
-
-const LoginPage = ({login}) => {
-
+const LoginPage = ({ login }) => {
   const navigate = useNavigate();
   const [email, setMail] = useState("");
   const [passWord, setPassword] = useState("");
@@ -21,11 +19,11 @@ const LoginPage = ({login}) => {
   }, [email, passWord, isFormValid]);
 
   const handleLogin = () => {
-    const userDeatails={
+    const userDeatails = {
       email,
-      passWord
+      passWord,
     };
-    login(userDeatails,navigate);
+    login(userDeatails, navigate);
   };
 
   return (
@@ -42,10 +40,10 @@ const LoginPage = ({login}) => {
   );
 };
 
-const mapActionsToProps= (dispatch)=>{
+const mapActionsToProps = (dispatch) => {
   return {
     ...getActions(dispatch),
-  }
-}
+  };
+};
 
-export default connect(null,mapActionsToProps)(LoginPage);
+export default connect(null, mapActionsToProps)(LoginPage);

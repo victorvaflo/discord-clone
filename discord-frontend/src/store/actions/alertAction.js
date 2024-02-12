@@ -10,14 +10,14 @@ export const getActions = (dispatch) => {
   };
 };
 
-const openAlertMessage = (content) => {
+export const openAlertMessage = (content) => {
   return {
     type: alertActions.OPEN_ALERT_MESSAGE,
     content,
   };
 };
 
-const closeAlertMessage = (content) => {
+export const closeAlertMessage = (content) => {
   return {
     type: alertActions.CLOSE_ALERT_MESSAGE,
     content,

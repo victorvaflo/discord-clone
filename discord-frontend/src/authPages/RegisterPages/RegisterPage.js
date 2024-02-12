@@ -4,10 +4,10 @@ import AuthBox from "../../shared/components/AuthBox";
 import { Typography } from "@mui/material";
 import RegisterPageInputs from "./RegisterPageInputs";
 import RegistePageFooter from "./RegistePageFooter";
-import { validateRegisterForm } from "../../shared/components/utils/validators";
+import { validateRegisterForm } from "../../shared/utils/validators";
 import { connect } from "react-redux";
 import { getActions } from "../../store/actions/authAction";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = ({ register }) => {
   const navigate = useNavigate();
@@ -22,7 +22,9 @@ const RegisterPage = ({ register }) => {
 
   const handleRegister = () => {
     const userDeatails = {
-      email, passWord, userName
+      email,
+      passWord,
+      userName,
     };
     register(userDeatails, navigate);
   };
@@ -51,7 +53,7 @@ const RegisterPage = ({ register }) => {
 const mapActionsToProps = (dispatch) => {
   return {
     ...getActions(dispatch),
-  }
-}
+  };
+};
 
 export default connect(null, mapActionsToProps)(RegisterPage);
