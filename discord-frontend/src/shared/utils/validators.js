@@ -12,14 +12,14 @@ export const validateRegisterForm = (email, userName, passWord) => {
   return isMailValid && isPasswordValid && isUserNameValid;
 };
 
-const validatePassword = (passWord) => {
+export const validatePassword = (passWord) => {
   return passWord.length > 6 && passWord.length < 12;
 };
 
-const validateMail = (email) => {
+export const validateMail = (email) => {
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   return emailPattern.test(email);
 };
-const validateUserName = (username) => {
+export const validateUserName = (username) => {
   return username.length > 2 && username.length < 13;
 };
