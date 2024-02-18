@@ -5,6 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import InputsWithLabel from "../../shared/components/InputsWithLabel";
+import CustomPrimaryBtn from "../../shared/components/CustomPrimaryBtn";
 
 function AddFriendDialog({
   isDialogOpen,
@@ -44,6 +45,18 @@ function AddFriendDialog({
             placeholder="enter email adress"
           />
         </DialogContent>
+        <DialogActions>
+          <CustomPrimaryBtn
+            onClick={handleSendInvitation}
+            disabled={!isFromValid}
+            label={"send"}
+            additionnalStyles={{
+              maarginLeft: "15px",
+              marginRight: "15px",
+              marginBottom: "10px",
+            }}
+          ></CustomPrimaryBtn>
+        </DialogActions>
       </Dialog>
     </div>
   );
