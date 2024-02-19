@@ -1,6 +1,7 @@
 import { Box, Tooltip, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Avatar from "../../../shared/components/Avatar";
+import InvitationDecisionButton from "./InvitationDecisionButton";
 
 function PendingInvitationsListItem({
   id,
@@ -28,7 +29,7 @@ function PendingInvitationsListItem({
           sx={{
             width: "100%",
             height: "42px",
-            margintop: "10px",
+            marginTop: "10px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -46,6 +47,11 @@ function PendingInvitationsListItem({
           >
             {username}
           </Typography>
+          <InvitationDecisionButton
+            disabled={buttonsDisable}
+            acceptInvitationHantler={handleAcceptFriendInvitation}
+            rejectInvitationHantler={handleRejectFriendInvitation}
+          />
         </Box>
       </div>
     </Tooltip>
