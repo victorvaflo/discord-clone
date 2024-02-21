@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 
-const socket = null;
+let socket = null;
 
 export const connectWithSocketServer = () => {
   socket = io("http://localhost:5002");

@@ -34,7 +34,6 @@ export const login = async (data) => {
 };
 
 export const register = async (data) => {
-  console.log(data);
   try {
     return await apiClient.post("/auth/register", data);
   } catch (err) {
