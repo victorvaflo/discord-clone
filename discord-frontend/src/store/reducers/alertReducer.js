@@ -14,7 +14,11 @@ const reducer = (state = iniState, action) => {
         alertMessageContent: action.content,
       };
     case alertActions.CLOSE_ALERT_MESSAGE:
-      return { ...state, showAlertMessage: false };
+      return {
+        ...state,
+        showAlertMessage: false,
+        alertMessageContent: null,
+      };
     default:
       return state;
   }
