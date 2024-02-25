@@ -31,7 +31,7 @@ function AddFriendDialog({
 
   return (
     <div>
-      <Dialog open={isDialogOpen} onClose={closeDialogHantler}>
+      <Dialog open={isDialogOpen} onClose={hantleCloseDialog}>
         <DialogTitle>
           <Typography>Invite Friend</Typography>
         </DialogTitle>
