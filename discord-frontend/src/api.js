@@ -45,6 +45,18 @@ export const register = async (data) => {
 };
 //private routes
 
+export const sendFriendInvitation = async (data) => {
+  try {
+    return await apiClient.post("/friend-invitation/invite", data);
+  } catch (err) {
+    checkResponseCode(err);
+    return {
+      error: true,
+      err,
+    };
+  }
+};
+
 const checkResponseCode = (err) => {
   const responseCode = err?.reponse?.status;
   if (responseCode) {
