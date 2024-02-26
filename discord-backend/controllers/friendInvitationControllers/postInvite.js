@@ -5,15 +5,17 @@ const postInvite = async (req, res) => {
 
   const { userId, email } = req.user;
 
+  console.log(email);
+  console.log(targetEmailAdress);
   //check if friend that we like to inv is not user
-  if (email.toLowerCase() === targetEmailAddress.toLowerCase()) {
+  if (email.toLowerCase() === targetEmailAdress.toLowerCase()) {
     return res
       .status(409)
       .send("sorry! you can not becaome friend with yourself");
   }
 
-  const targetUser = await UserActivation.findOne({
-    email: targetEmailAddress.toLowerCase(),
+  const targetUser = await User.findOne({
+    email: targetEmailAdress.toLowerCase(),
   });
 
   if (!targetUser) {
