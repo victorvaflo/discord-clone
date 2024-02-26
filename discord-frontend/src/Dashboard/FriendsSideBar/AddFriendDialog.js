@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import InputsWithLabel from "../../shared/components/InputsWithLabel";
 import CustomPrimaryBtn from "../../shared/components/CustomPrimaryBtn";
-import { Connect } from "react-redux";
+import { connect } from "react-redux";
 import { getActions } from "../../store/actions/friendsActions";
 
 function AddFriendDialog({
@@ -17,7 +17,7 @@ function AddFriendDialog({
   const [email, setEmail] = useState("");
   const [isFromValid, setIsFormValid] = useState("");
   const handleSendInvitation = () => {
-    sendFriendInvitation({ email: email });
+    sendFriendInvitation({ targetEmailAdress: email }, hantleCloseDialog);
   };
 
   const hantleCloseDialog = () => {
@@ -72,4 +72,4 @@ const mapActionsToProps = (dispatch) => {
   };
 };
 
-export default Connect(null, mapActionsToProps)(AddFriendDialog);
+export default connect(null, mapActionsToProps)(AddFriendDialog);
